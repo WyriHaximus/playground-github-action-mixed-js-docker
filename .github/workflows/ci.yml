@@ -34,7 +34,7 @@ jobs:
         uses: docker://hadolint/hadolint:latest-debian
         with:
           entrypoint: hadolint
-          args: generate-comments/Dockerfile-build
+          args: Dockerfile
   build-docker-image:
     name: Build Docker image
     needs:
