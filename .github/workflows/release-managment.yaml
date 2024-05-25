@@ -1,0 +1,21 @@
+name: Release Management
+on:
+  pull_request:
+    types:
+      - opened
+      - labeled
+      - unlabeled
+      - synchronize
+      - reopened
+  milestone:
+    types:
+      - closed
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+jobs:
+  release-managment:
+    name: Release Management
+    secrets: inherit
+    uses: WyriHaximus/github-workflows/.github/workflows/github-action-release-managment.yaml@github-action-workfows
