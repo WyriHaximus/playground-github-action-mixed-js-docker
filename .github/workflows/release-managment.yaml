@@ -19,7 +19,13 @@ jobs:
   release-managment:
     name: Release Management
     secrets: inherit
-    uses: WyriHaximus/github-workflows/.github/workflows/github-action-release-managment.yaml@github-action-workfows
+    uses: WyriHaximus/github-workflows/.github/workflows/github-action-release-managment.yaml@add-run-shell-before-release
     with:
       milestone: ${{ github.event.milestone.title }}
       description: ${{ github.event.milestone.title }}
+      preReleaseScript: |
+        touch action.yaml
+        git add action.yaml
+        git config user.name '${{ github.actor }}'
+        git config user.email '${{ github.actor }}@users.noreply.github.com'
+        git commit -F release-${{ github.event.milestone.title }}-release-message.md
