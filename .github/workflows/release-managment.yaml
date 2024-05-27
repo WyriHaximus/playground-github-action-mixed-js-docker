@@ -28,4 +28,4 @@ jobs:
         git add action.yaml
         git config user.name '${{ github.actor }}'
         git config user.email '${{ github.actor }}@users.noreply.github.com'
-        git commit -F release-${{ github.event.milestone.title }}-release-message.md
+        git commit -m "Prepare ${{ github.event.milestone.title }} release"
