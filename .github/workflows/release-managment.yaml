@@ -23,9 +23,7 @@ jobs:
     with:
       milestone: ${{ github.event.milestone.title }}
       description: ${{ github.event.milestone.title }}
+      mustCreateCommit: true
       preReleaseScript: |
         touch action.yaml
         git add action.yaml
-        git config user.name '${{ github.actor }}'
-        git config user.email '${{ github.actor }}@users.noreply.github.com'
-        git commit -m "Prepare ${{ github.event.milestone.title }} release"
