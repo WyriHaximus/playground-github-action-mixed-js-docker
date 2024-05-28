@@ -23,6 +23,7 @@ jobs:
     with:
       milestone: ${{ github.event.milestone.title }}
       description: ${{ github.event.milestone.title }}
+      mustCreateCommit: true
       preReleaseScript: |
         touch action.yaml
         git add action.yaml
